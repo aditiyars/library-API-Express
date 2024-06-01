@@ -1,0 +1,15 @@
+1. borrow book API
+    V member max borrow = 2
+    V borrowed books are not borrowed by other members
+    V member is currently not being penalized
+2. return book API
+    v return book yang dipinjem
+    v if book return after 7 days, the member will be the subject to a penalty. Member with penalty cannot able to borrow the book for 3 days
+3. Check book
+    V show all existing books and quantities
+    V books that are being borrowed are not counted
+4. Member Check
+    V show all existing members 
+    V the number of books being borrowed by each member
+
+Note : DDD Patern, Documentation, Unit Testing

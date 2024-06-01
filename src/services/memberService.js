@@ -5,7 +5,9 @@ class MemberService {
     return await memberRepository.getAllMembers();
   }
 
-  // Other methods like borrowBook, returnBook, etc.
+  async createMember(data){
+    return await memberRepository.createMember(data)
+  }
 }
 
 module.exports = new MemberService();
