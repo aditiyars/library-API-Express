@@ -1,0 +1,130 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Library API",
+      "version": "1.0.0",
+      "description": "API documentation for the Library system"
+    },
+    "paths": {
+      "/api/v1/books": {
+        "get": {
+          "summary": "Returns the list of all the books",
+          "tags": ["Books"],
+          "responses": {
+            "200": {
+              "description": "The list of books",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Book"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/books/available": {
+        "get": {
+          "summary": "Returns the list of all available books",
+          "tags": ["Books"],
+          "responses": {
+            "200": {
+              "description": "The list of available books",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Book"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/v1/members": {
+        "get": {
+          "summary": "Returns the list of all members",
+          "tags": ["Members"],
+          "responses": {
+            "200": {
+              "description": "The list of members",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Member"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "Book": {
+          "type": "object",
+          "required": ["code", "title", "author", "stock"],
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "The book code"
+            },
+            "title": {
+              "type": "string",
+              "description": "The title of the book"
+            },
+            "author": {
+              "type": "string",
+              "description": "The author of the book"
+            },
+            "stock": {
+              "type": "integer",
+              "description": "The stock of the book"
+            }
+          },
+          "example": {
+            "code": "1234",
+            "title": "The Great Gatsby",
+            "author": "F. Scott Fitzgerald",
+            "stock": 10
+          }
+        },
+        "Member": {
+          "type": "object",
+          "required": ["code", "name"],
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "The member code"
+            },
+            "name": {
+              "type": "string",
+              "description": "The name of the member"
+            },
+            "penaltyEndDate": {
+              "type": "string",
+              "format": "date",
+              "description": "The date when the penalty ends"
+            }
+          },
+          "example": {
+            "code": "5678",
+            "name": "John Doe",
+            "penaltyEndDate": "2024-06-01"
+          }
+        }
+      }
+    }
+  }
+  
