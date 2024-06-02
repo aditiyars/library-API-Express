@@ -1,0 +1,303 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Library API",
+    "description": "API documentation for the Library system",
+    "version": "1.0.11"
+  },
+  "servers": [
+    {
+      "url": "/api/v1"
+    }
+  ],
+  "paths": {
+    "/books": {
+      "get": {
+        "summary": "get all books",
+        "description": "",
+        "operationId": "",
+        "responses": {
+          "default": {
+            "description": "Default error sample response"
+          }
+        },
+        "tags": [
+          "Books"
+        ]
+      },
+      "post": {
+        "summary": "add new book",
+        "description": "",
+        "operationId": "",
+        "requestBody": {
+          "description": "Update an existent pet in the store",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Books"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/Books"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Books"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "default": {
+            "description": "Default error sample response"
+          }
+        },
+        "tags": [
+          "Books"
+        ]
+      }
+    },
+    "/books/borrow": {
+      "summary": "Borrow books",
+      "get": {
+        "summary": "get all borrowing books",
+        "description": "",
+        "operationId": "",
+        "responses": {
+          "default": {
+            "description": "Default error sample response"
+          }
+        },
+        "tags": [
+          "Books Borrow"
+        ]
+      },
+      "post": {
+        "summary": "add borrowing book",
+        "description": "",
+        "operationId": "",
+        "requestBody": {
+          "description": "Borrow book",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Borrow"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/Borrow"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Borrow"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "Default error sample response"
+          }
+        },
+        "tags": [
+          "Books Borrow"
+        ]
+      }
+    },
+    "/books/available": {
+      "summary": "get all available to borrow books",
+      "get": {
+        "summary": "get all available to borrow books",
+        "description": "",
+        "operationId": "",
+        "responses": {
+          "default": {
+            "description": "Default error sample response"
+          }
+        },
+        "tags": [
+          "Books"
+        ]
+      }
+    },
+    "/books/return": {
+      "summary": "return book",
+      "post": {
+        "summary": "return book",
+        "description": "",
+        "operationId": "",
+        "requestBody": {
+          "description": "Return book",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Borrow"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/Borrow"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Borrow"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "Default error sample response"
+          }
+        },
+        "tags": [
+          "Books Borrow"
+        ]
+      }
+    },
+    "/members": {
+      "summary": "get all members",
+      "description": "Members",
+      "get": {
+        "summary": "get all members",
+        "description": "",
+        "operationId": "",
+        "responses": {
+          "default": {
+            "description": "Default error sample response"
+          }
+        },
+        "tags": [
+          "Members"
+        ]
+      },
+      "post": {
+        "summary": "create new member",
+        "description": "",
+        "operationId": "",
+        "requestBody": {
+          "description": "Create member",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Members"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/Members"
+              }
+            },
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "$ref": "#/components/schemas/Members"
+              }
+            }
+          }
+        },
+        "responses": {
+          "default": {
+            "description": "Default error sample response"
+          }
+        },
+        "tags": [
+          "Members"
+        ]
+      }
+    },
+    "/members/borrow/{code}": {
+      "summary": "get all borrowing books by member code",
+      "get": {
+        "summary": "get all borrowing books by member code",
+        "description": "",
+        "operationId": "",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Member Code",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "M001"
+            }
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Default error sample response"
+          }
+        },
+        "tags": [
+          "Members"
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Books": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "format": "string",
+            "example": "JK-45"
+          },
+          "title": {
+            "type": "string",
+            "format": "string",
+            "example": "Harry Potter"
+          },
+          "author": {
+            "type": "string",
+            "format": "string",
+            "example": "J.K Rowling"
+          },
+          "stock": {
+            "type": "integer",
+            "example": 1
+          }
+        },
+        "xml": {
+          "name": "books"
+        }
+      },
+      "Borrow": {
+        "type": "object",
+        "properties": {
+          "memberCode": {
+            "type": "string",
+            "example": "M001"
+          },
+          "bookCode": {
+            "type": "string",
+            "example": "JK-45"
+          }
+        },
+        "xml": {
+          "name": "borrow"
+        }
+      },
+      "Members": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "example": "M001"
+          },
+          "name": {
+            "type": "string",
+            "example": "Angga"
+          }
+        }
+      }
+    }
+  }
+}
